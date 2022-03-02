@@ -47,7 +47,7 @@ def SNRseg(clean_speech, processed_speech,fs, frameLen=0.03, overlap=0.75):
 def segmental_snr(enhanced, target, mixture,txt,fs=16000, window_size=32, hop_size=16, min_snr=-10, max_snr=35):
     
     
-    assert not (len(enhanced.shape)!=2 or len(target.shape)!=2 or len(mixture.shape)!=2), 'tensors should have 2 dimensions'
+    assert not (len(enhanced.shape)!=2 or len(target.shape)!=2 or len(mixture.shape)!=2), 'tensors should have 2 dimensions, (batch, time)'
     assert enhanced.shape==target.shape, 'enhanced and target tensor should have same shape'
 
     snr_func=SingleSrcNegSDR('snr', )
